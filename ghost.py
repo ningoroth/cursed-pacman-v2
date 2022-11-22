@@ -30,6 +30,15 @@ class Ghost:
 
         self.tick += 1 
     
+    def draw(self, direction):
+        r = int((tick/2)%6)
+        if direction == "left":
+            screen.blit(pacman_images[r], (self.x, self.y))
+        elif direction == "right":
+            screen.blit(pg.transform.rotate(pacman_images[r],180), (self.x, self.y))
+        else:
+            screen.blit(pacman_images[0], (self.x, self.y))
+    
     def draw(self,screen):
         r = self.tick%2
         screen.blit(self.images[r], (self.col*32, self.row*32)) 
