@@ -16,7 +16,7 @@ class PacMan:
 
         self.images = []
         for i in range(6):
-            img = pg.image.load(f"images/pacman_{i}.png")
+            img = pg.image.load(f"images/pacmanImages/pacman_{i}.png")
             img = pg.transform.scale(img, (32,32))
             self.images.append(img)
 

@@ -17,7 +17,7 @@ class Ghost:
 
         self.images = []
         for i in range(2):
-            img = pg.image.load(f"images/ghost_{i}.png")
+            img = pg.image.load(f"images/ghostsImages/pink_{i}.png")
             img = pg.transform.scale(img, (32,32))
             self.images.append(img)
 
