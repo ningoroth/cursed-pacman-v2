@@ -11,7 +11,7 @@ from level import Level
 ## Setup ##
 pg.init()
 
-screen = pg.display.set_mode((8*32,7*32))
+screen = pg.display.set_mode()
 pg.display.set_caption("Pac-Man (clone)")
 
 font_press_enter = pg.font.Font(None, 32)
@@ -22,10 +22,10 @@ running = True
 while running:
     
     if state == "LOAD":
-        pacman = PacMan(0,1)
+        level = Level("level.txt")
+        pacman = PacMan(level.x, level.y)
         ghost = Ghost(3,2)
         direction = None
-        level = Level("level.txt")
         state = "READY"
 
 
