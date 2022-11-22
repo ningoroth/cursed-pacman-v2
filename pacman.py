@@ -1,5 +1,11 @@
 import pygame as pg
 
+images = []
+for i in range(6):
+    img = pg.image.load(f"images/pacman_{i}.png")
+    img = pg.transform.scale(img, (32,32))
+    pacman_images.append(img)
+
 class PacMan:
 
     def __init__(self, row, col):
@@ -14,35 +20,41 @@ class PacMan:
         self.col = col
         self.row = row
 
-        self.images = []
-        for i in range(6):
-            img = pg.image.load(f"images/pacman_{i}.png")
-            img = pg.transform.scale(img, (32,32))
-            self.images.append(img)
-
         self.tick = 0
 
 
-    def move(self, level, direction):
+    def move(self, level, direction, screen):
         # Move pacman
         moving = False
         if direction == "up":
             if level.tiles[self.row-1][self.col] != "#":
                 self.row -= 1
                 moving = True
+                screen.blit(pg.transform.rotate(pacman_images[r],90),(self.x,self.y))
+            
+               
 
         elif direction == "down":
             if level.tiles[self.row+1][self.col] != "#":
                 self.row += 1
                 moving = True
+                screen.blit(pg.transform.rotate(self.images[i],-90),(self.x,self.y))
+            
+               
         elif direction == "left":
             if level.tiles[self.row][self.col-1] != "#":
                 self.col -= 1
                 moving = True
-        elif direction == "right":
+                screen.blit(pacman_images[r], (self.x,self.y))
+            
+             
+        elif direction == "right":         
             if level.tiles[self.row][self.col+1] != "#":
                 self.col += 1 
                 moving = True
+                screen.blit(pg.transform.rotate(self.images[i],180),(self.x,self.y))
+            
+                
 
         if moving:
             if self.tick%2 == 0:

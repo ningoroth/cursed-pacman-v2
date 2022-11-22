@@ -70,7 +70,7 @@ while running:
 
 
         ## Move / logic ##
-        pacman.move(level,direction)
+        pacman.move(level,direction,screen)
         ghost.move(level)
 
 
