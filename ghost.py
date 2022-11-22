@@ -30,20 +30,20 @@ class Ghost:
 
         self.tick += 1 
     
-    def draw(self, tick, screen, blueGhost, orangeGhost, pinkGhost, redGhost):
+    def draw(self, tick, screen, pinkGhost):
         self.ghostDirection = random.choice(["left", "right", "up", "down"])
         print("draw:", self.ghostDirection)
         r = int((tick/2)%4)
         if self.ghostDirection == "right":
-            screen.blit(blueGhost[0], (self.x, self.y))
+            screen.blit(pinkGhost[0], (self.x, self.y))
         elif self.ghostDirection == "up":
-            screen.blit(orangeGhost[1], (self.x, self.y))
+            screen.blit(pinkGhost[1], (self.x, self.y))
         elif self.ghostDirection == "left":
             screen.blit(pinkGhost[2], (self.x, self.y))
         elif self.ghostDirection == "down":
-            screen.blit(redGhost[3], (self.x, self.y))
+            screen.blit(pinkGhost[3], (self.x, self.y))
         else:
-            screen.blit(blueGhost[0], (self.x, self.y))
+            screen.blit(pinkGhost[0], (self.x, self.y))
     
     def draw(self,screen):
         r = self.tick%2
