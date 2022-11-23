@@ -11,8 +11,11 @@ from level import Level
 ## Setup ##
 pg.init()
 
-screen = pg.display.set_mode((8*32,7*32))
-pg.display.set_caption("Pac-Man (clone)")
+width = 21 * 32
+height = 21 * 32 
+
+screen = pg.display.set_mode((width,height))
+pg.display.set_caption("Pac-Man (cursed)")
 
 font_press_enter = pg.font.Font(None, 32)
 
@@ -70,7 +73,7 @@ while running:
 
 
         ## Move / logic ##
-        pacman.move(level,direction,screen)
+        pacman.move(level,direction)
         ghost.move(level)
 
 
