@@ -29,20 +29,27 @@ class PacMan:
         if direction == "up":
             if level.tiles[self.row-1][self.col] != "#":
                 self.row -= 1
+                print("row:",self.row)
                 moving = True
 
         elif direction == "down":
             if level.tiles[self.row+1][self.col] != "#":
                 self.row += 1
+                print("row:",self.row)
                 moving = True
         elif direction == "left":
             if level.tiles[self.row][self.col-1] != "#":
                 self.col -= 1
+                print("col:",self.col)
                 moving = True
         elif direction == "right":
             if level.tiles[self.row][self.col+1] != "#":
                 self.col += 1 
+                print("col:",self.col)
                 moving = True
+
+        if self.col:
+            pass
 
         if moving:
             if self.tick%2 == 0:
