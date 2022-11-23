@@ -20,6 +20,8 @@ pg.display.set_caption("Pac-Man (cursed)")
 font_press_enter = pg.font.Font(None, 32)
 
 ## Game loop ##
+direction = None
+tick = 0
 state = "LOAD"
 running = True
 while running:
@@ -81,7 +83,7 @@ while running:
         screen.fill((0,0,0)) 
         level.draw(screen)
         ghost.draw(screen)
-        pacman.draw(screen)
+        pacman.draw(screen,direction)
 
         # Update window with newly drawn pixels
         pg.display.flip()  
