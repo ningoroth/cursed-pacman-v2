@@ -23,7 +23,7 @@ class PacMan:
         self.tick = 0
 
 
-    def move(self, level, direction, num_cols):
+    def move(self, level, direction):
         # Move pacman
         moving = False
         if direction == "up":
@@ -47,9 +47,9 @@ class PacMan:
                 moving = True
 
         if self.col < 0:
-            self.col = num_cols -1
+            self.col = level.num_cols -1
         
-        elif self.col == num_cols:
+        elif self.col == level.num_cols:
             self.col = 0
 
         if moving:
