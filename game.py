@@ -14,6 +14,7 @@ level = Level("level.txt")
 
 width = level.num_cols * 32
 height = level.num_cols * 32
+print("num_cols:", level.num_cols)
 screen = pg.display.set_mode((width, height))
 
 pg.display.set_caption("Pac-Man (clone)")
@@ -73,8 +74,8 @@ while running:
 
 
         ## Move / logic ##
-        pacman.move(level,direction)
-        ghost.move(level)
+        pacman.move(level, direction, level.num_cols)
+        ghost.move(level, level.num_cols, level.num_rows, level.ghost_x, level.ghost_y)
 
 
         ## Draw ##

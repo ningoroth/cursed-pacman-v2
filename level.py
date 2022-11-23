@@ -31,17 +31,7 @@ class Level:
                 self.tiles.append(row)
         
         self.num_rows = len(self.tiles)
-        self.num_cols = len(self.tiles[0])
-                    
-
-            #for line in level_file:
-            #    line = line.rstrip("\r\n") # Remove line endings
-            #    row = []
-            #    for character in line:
-            #        row.append(character)
-            #    self.tiles.append(row)
-            
-
+        self.num_cols = len(self.tiles[0]) 
 
     def draw(self, screen):
         for row_idx, row in enumerate(self.tiles):

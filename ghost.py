@@ -24,9 +24,21 @@ class Ghost:
         self.tick = 0
 
 
-    def move(self, level):
+    def move(self, level, num_cols, num_rows, ghost_x, ghost_y):
         self.col += random.randint(-1,1)
         self.row += random.randint(-1,1)
+
+        if self.col < 0:
+            self.col += 1
+
+        elif self.col == num_cols:
+            self.col -= 1
+
+        elif self.row < 0:
+            self.row += 1
+    
+        elif self.row == num_rows:
+            self.row -= 1
 
         self.tick += 1 
     
