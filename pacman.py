@@ -52,18 +52,6 @@ class PacMan:
 
         self.tick += 1 
     
-    def find_pacman(self):
-        self.col = -1
-        self.row = -1
-        print(self.col, self.row)
-
-        for x in range(len(self)):
-            for row in range(len(self[x])):
-                if self[col,row] == "P":
-                    self.col = col
-                    self.row = row
-        return self.col, self.row
-    
     def draw(self, screen, direction):
         r = int((self.tick/2)%6)
         if direction == "left":

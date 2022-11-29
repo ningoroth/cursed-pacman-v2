@@ -76,8 +76,7 @@ while running:
 
         ## Move / logic ##
         pacman.move(level,direction)
-        ghost.move(level)
-
+        ghost.move()
 
         ## Draw ##
         screen.fill((0,0,0)) 
