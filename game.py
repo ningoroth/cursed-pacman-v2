@@ -50,7 +50,7 @@ while running:
         time.sleep(0.1)
         
 
-    elif state == "PLAY":
+    elif state == "PLAY": 
 
         ## Handle events (keypresses etc.)
         events = pg.event.get()
