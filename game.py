@@ -81,7 +81,8 @@ while running:
 
         if level.tiles[pacman.row][pacman.col] == ".":
             points += 1
-            level.tiles.remove([pacman.row][pacman.col])
+            print("points:", points)
+            level.tiles[pacman.row][pacman.col] = " "
 
 
         ## Draw ##
