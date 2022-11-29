@@ -11,12 +11,17 @@ from level import Level
 ## Setup ##
 pg.init()
 
-screen = pg.display.set_mode((8*32,7*32))
-pg.display.set_caption("Pac-Man (clone)")
+width = 21 * 32
+height = 21 * 32 
+
+screen = pg.display.set_mode((width,height))
+pg.display.set_caption("Pac-Man (cursed)")
 
 font_press_enter = pg.font.Font(None, 32)
 
 ## Game loop ##
+direction = None
+tick = 0
 state = "LOAD"
 running = True
 while running:
@@ -71,14 +76,13 @@ while running:
 
         ## Move / logic ##
         pacman.move(level,direction)
-        ghost.move(level)
-
+        ghost.move()
 
         ## Draw ##
         screen.fill((0,0,0)) 
         level.draw(screen)
         ghost.draw(screen)
-        pacman.draw(screen)
+        pacman.draw(screen,direction)
 
         # Update window with newly drawn pixels
         pg.display.flip()  
