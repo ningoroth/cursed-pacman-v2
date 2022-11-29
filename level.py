@@ -40,6 +40,4 @@ class Level:
                     pg.draw.rect(screen, (10,10,250), pg.Rect(col_idx*32+1, row_idx*32+1, 30, 30), 100)
                 elif tile == ".":
                     pg.draw.circle(screen, (255,255,255), (col_idx*32+1+16, row_idx*32+1+16), 5)
-
-
         

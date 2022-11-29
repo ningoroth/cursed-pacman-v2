@@ -13,12 +13,14 @@ pg.init()
 level = Level("level.txt")
 
 width = level.num_cols * 32
-height = level.num_cols * 32
+height = level.num_cols * 32 + 50
 screen = pg.display.set_mode((width, height))
 
-pg.display.set_caption("Pac-Man (clone)")
+pg.display.set_caption("Crack-Man")
+crackmanImage = pg.image.load("images/crackman.png")
+pg.display.set_icon(crackmanImage)
 
-font_press_enter = pg.font.Font(None, 32)
+font = pg.font.Font("crackman.ttf", 32)
 
 ## Game loop ##
 direction = None
@@ -36,9 +38,13 @@ while running:
 
 
     elif state == "READY":
-        text = font_press_enter.render("Press [Enter] to play", True, (220,220,10))
-        text_rect = text.get_rect(center=(8*32/2, 7*32/2)) 
+        text = font.render("Press [Enter] to play", True, (220,220,10))
+        text_rect = text.get_rect(center=(width/2, height/2+70))
         screen.blit(text, text_rect)
+
+        crackmanImage = pg.transform.scale(crackmanImage, (200,200))
+        crackmanImage_rect = crackmanImage.get_rect(center=(width/2, height/2-70))
+        screen.blit(crackmanImage, crackmanImage_rect)
 
         events = pg.event.get()
         for event in events:
@@ -83,7 +89,6 @@ while running:
 
         if level.tiles[pacman.row][pacman.col] == ".":
             points += 1
-            print("points:", points)
             level.tiles[pacman.row][pacman.col] = " "
 
 
@@ -92,6 +97,10 @@ while running:
         level.draw(screen)
         ghost.draw(screen)
         pacman.draw(screen,direction)
+
+        pointsText = font.render(f"Points: {points}", True, (220,220,10))
+        pointsText_rect = pointsText.get_rect(bottomleft=(0,height)) 
+        screen.blit(pointsText, pointsText_rect)
 
         # Update window with newly drawn pixels
         pg.display.flip()  
