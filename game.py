@@ -44,7 +44,7 @@ while running:
                 running = False
             elif event.type == pg.KEYDOWN:
                 if event.key == pg.K_RETURN:
-                    state = "PLAY"
+                    state = "PLAY"  
 
         pg.display.flip()  
         time.sleep(0.1)
