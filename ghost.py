@@ -28,6 +28,18 @@ class Ghost:
         self.col += random.randint(-1,1)
         self.row += random.randint(-1,1)
 
+        if self.col < 0:
+            self.col += 1
+
+        elif self.col == level.num_cols:
+            self.col -= 1
+
+        elif self.row < 0:
+            self.row += 1
+    
+        elif self.row == level.num_rows:
+            self.row -= 1
+
         self.tick += 1 
     
     def draw(self,screen):
