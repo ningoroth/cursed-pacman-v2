@@ -10,12 +10,13 @@ from level import Level
 
 ## Setup ##
 pg.init()
+level = Level("level.txt")
 
-width = 21 * 32
-height = 21 * 32 
+width = level.num_cols * 32
+height = level.num_cols * 32
+screen = pg.display.set_mode((width, height))
 
-screen = pg.display.set_mode((width,height))
-pg.display.set_caption("Pac-Man (cursed)")
+pg.display.set_caption("Pac-Man (clone)")
 
 font_press_enter = pg.font.Font(None, 32)
 
@@ -23,14 +24,14 @@ font_press_enter = pg.font.Font(None, 32)
 direction = None
 tick = 0
 state = "LOAD"
+points = 0
 running = True
 while running:
     
     if state == "LOAD":
-        pacman = PacMan(0,1)
-        ghost = Ghost(3,2)
+        pacman = PacMan(level.pacman_x, level.pacman_y)
+        ghost = Ghost(level.ghost_x, level.ghost_y)
         direction = None
-        level = Level("level.txt")
         state = "READY"
 
 
@@ -45,13 +46,13 @@ while running:
                 running = False
             elif event.type == pg.KEYDOWN:
                 if event.key == pg.K_RETURN:
-                    state = "PLAY"
+                    state = "PLAY"  
 
         pg.display.flip()  
         time.sleep(0.1)
         
 
-    elif state == "PLAY":
+    elif state == "PLAY": 
 
         ## Handle events (keypresses etc.)
         events = pg.event.get()
@@ -75,11 +76,19 @@ while running:
 
 
         ## Move / logic ##
-        pacman.move(level,direction)
-        ghost.move()
+        pacman.move(level, direction)
+
+        ghost.move(level)
+
+
+        if level.tiles[pacman.row][pacman.col] == ".":
+            points += 1
+            print("points:", points)
+            level.tiles[pacman.row][pacman.col] = " "
+
 
         ## Draw ##
-        screen.fill((0,0,0)) 
+        screen.fill((0,0,0))
         level.draw(screen)
         ghost.draw(screen)
         pacman.draw(screen,direction)

@@ -29,18 +29,23 @@ class Ghost:
         self.row = -1
         print(self.col, self.row)
 
-        for x in range(len(self)):
-            for row in range(len(self[x])):
-                if self[self.col,self.row] == "P":
-                    self.col = self.col
-                    self.row = row
-        return self.col, self.row
+    def move(self, level):
+        self.col += random.randint(-1,1)
+        self.row += random.randint(-1,1)
 
-    def move(self):
-        dx = random.randint(-2,2)
-        dy = random.randint(-2,2)
-        self.col += dx
-        self.row += dy
+        if self.col < 0:
+            self.col += 1
+
+        elif self.col == level.num_cols:
+            self.col -= 1
+
+        elif self.row < 0:
+            self.row += 1
+    
+        elif self.row == level.num_rows:
+            self.row -= 1
+
+        self.tick += 1 
     
     def draw(self,screen):
         r = self.tick%2
