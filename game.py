@@ -86,7 +86,7 @@ while running:
 
 
         ## Draw ##
-        screen.fill((0,0,0)) 
+        screen.fill((0,0,0))
         level.draw(screen)
         ghost.draw(screen)
         pacman.draw(screen)
