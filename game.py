@@ -1,4 +1,5 @@
-# Pac-Man clone made for learning/teaching git and Python
+## REQUIRED MODULES ##
+# Importere biblioteker #
 
 import random
 import time
@@ -8,7 +9,8 @@ from pacman import PacMan
 from ghost import Ghost
 from level import Level
 
-## Setup ##
+## SETUP ##
+# Opstiller spillets "level" og sætter x,y koordinater for spilskærmen#
 pg.init()
 level = Level("level.txt")
 
@@ -16,11 +18,12 @@ width = level.num_cols * 32
 height = level.num_cols * 32
 screen = pg.display.set_mode((width, height))
 
-pg.display.set_caption("Pac-Man (clone)")
-
+# Opstiller startskærm og vinduets navn #
+pg.display.set_caption("Fucked up Pac-Man")
 font_press_enter = pg.font.Font(None, 32)
 
-## Game loop ##
+## GAME LOOP ##
+# Opstiller 
 direction = None
 tick = 0
 state = "LOAD"

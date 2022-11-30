@@ -61,7 +61,7 @@ class PacMan:
         self.tick += 1 
     
     def draw(self, screen, direction):
-        r = int((self.tick/2)%6)
+        r = int((self.tick/1)%6)
         if direction == "left":
             screen.blit(self.images[r], (self.col*32, self.row*32))
         elif direction == "right":
