@@ -33,6 +33,25 @@ class Ghost:
         self.col += random.randint(-1,1)
         self.row += random.randint(-1,1)
 
+        moving = False
+        
+        if level.tiles[self.row-1][self.col] != "#":
+            self.row -= 1
+            moving = True
+
+        if level.tiles[self.row+1][self.col] != "#":
+            self.row += 1
+            moving = True
+
+        
+        if level.tiles[self.row][self.col-1] != "#":
+            self.col -= 1
+            moving = True
+
+        if level.tiles[self.row][self.col+1] != "#":
+            self.col += 1 
+            moving = True
+
         if self.col < 0:
             self.col += 1
 
