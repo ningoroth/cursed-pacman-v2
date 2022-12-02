@@ -1,9 +1,15 @@
+## REQUIRED MODULES ##
+# Importere biblioteker #
 import pygame as pg
 
+## PACMAN CLASS ##
 class PacMan:
 
+    # Definere pacman parameteren (self) x,y koordinater #
     def __init__(self, row, col):
 
+        ## MOVE SOUND ##
+        # Indsætter lyd mens move funktionen er aktiv #
         # https://sfxr.me/#34T6PktF8TcRjBGBCtaWAp8xrJeEmwSfouC2KVwAWC42iM2UWcDqruxhd8Xq4MFBc7kMaDGuyeyqde9ddiWDHprGh2dvs6Ery9NZQmbQM9gyXmSZzdhxPnMnw
         # https://sfxr.me/#34T6PkpqAUU8XZ3ze41FCou6ZCuAPdnvQEjkm2P1TPRMxjSRZdiQm9e5DJF1dPTvN8C3gPXJ7DuFniwZVHsmDC5qDkCUYDnkkgQAsqe9MaC2pHxKexVqdd5Jw
         self.sound_move0 = pg.mixer.Sound("sounds/pacman_move_0.wav")
@@ -11,9 +17,13 @@ class PacMan:
         self.sound_move0.set_volume(0.0) #0.5
         self.sound_move1.set_volume(0.0) #0.5
 
+        # Sætter parameter variablen til en ny parameter #
         self.col = col
         self.row = row
 
+        ## LOAD IMAGES ##
+        # Loader billeder fra mappen pacmanImages, scalere størrelse #
+        # Intergere img til listen #
         self.images = []
         for i in range(6):
             img = pg.image.load(f"images/pacmanImages/pacman_{i}.png")
@@ -22,9 +32,10 @@ class PacMan:
 
         self.tick = 0
 
-
+    # Definere metoden move #
     def move(self, level, direction):
-        # Move pacman
+       
+        # Laver hitbox til pacman, hvis directionen "#": #
         moving = False
         if direction == "up":
             if level.tiles[self.row-1][self.col] != "#":
@@ -60,6 +71,7 @@ class PacMan:
 
         self.tick += 1 
     
+    # Definere draw, og tegner billederne når pacman vender, sætter spawn. #
     def draw(self, screen, direction):
         r = int((self.tick/1)%6)
         if direction == "left":
