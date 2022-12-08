@@ -14,8 +14,8 @@ class PacMan:
         # https://sfxr.me/#34T6PkpqAUU8XZ3ze41FCou6ZCuAPdnvQEjkm2P1TPRMxjSRZdiQm9e5DJF1dPTvN8C3gPXJ7DuFniwZVHsmDC5qDkCUYDnkkgQAsqe9MaC2pHxKexVqdd5Jw
         self.sound_move0 = pg.mixer.Sound("sounds/pacman_move_0.wav")
         self.sound_move1 = pg.mixer.Sound("sounds/pacman_move_1.wav")
-        self.sound_move0.set_volume(0.0) #0.5
-        self.sound_move1.set_volume(0.0) #0.5
+        self.sound_move0.set_volume(0.01) #0.5
+        self.sound_move1.set_volume(0.01) #0.5
 
         # Sætter parameter variablen til en ny parameter #
         self.col = col
