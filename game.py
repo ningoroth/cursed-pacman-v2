@@ -27,7 +27,7 @@ font = pg.font.Font("crackman.ttf", 32)
 titleFont = pg.font.Font("crackman.ttf", 64)
 
 ## GAME LOOP ##
-# Klargøre variabler til gameloop #
+# Klargører variabler til gameloop #
 direction = None
 tick = 0
 state = "LOAD"
