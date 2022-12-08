@@ -1,11 +1,11 @@
 ## REQUIRED MODULES ##
-# Importere biblioteker #
+# Importerer biblioteker #
 import pygame as pg
 
 ## PACMAN CLASS ##
 class PacMan:
 
-    # Definere pacman parameteren (self) x,y koordinater #
+    # Definerer pacman parameteren (self) x,y koordinater #
     def __init__(self, row, col):
 
         ## MOVE SOUND ##
@@ -22,8 +22,8 @@ class PacMan:
         self.row = row
 
         ## LOAD IMAGES ##
-        # Loader billeder fra mappen pacmanImages, scalere størrelse #
-        # Intergere img til listen #
+        # Loader billeder fra mappen pacmanImages, scalerer størrelse #
+        # Intergerer img til listen #
         self.images = []
         for i in range(6):
             img = pg.image.load(f"images/pacmanImages/pacman_{i}.png")
@@ -32,7 +32,7 @@ class PacMan:
 
         self.tick = 0
 
-    # Definere metoden move #
+    # Definerer metoden move #
     def move(self, level, direction):
        
         # Laver hitbox til pacman, hvis directionen "#": #
@@ -71,7 +71,7 @@ class PacMan:
 
         self.tick += 1 
     
-    # Definere draw, og tegner billederne når pacman vender, sætter spawn. #
+    # Definerer draw, og tegner billederne når pacman vender, sætter spawn. #
     def draw(self, screen, direction):
         r = int((self.tick/1)%6)
         if direction == "left":

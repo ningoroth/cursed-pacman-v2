@@ -1,5 +1,5 @@
 ## REQUIRED MODULES ##
-# Importere biblioteker #
+# Importerer biblioteker #
 import pygame as pg
 import random
 from pacman import PacMan
@@ -7,7 +7,7 @@ from pacman import PacMan
 ## GHOST CLASS ##
 class Ghost:
 
-    # Definere ghost parameteren (self) x,y koordinater #
+    # Definerer ghost parameteren (self) x,y koordinater #
     def __init__(self, row, col):
 
         ## MOVE SOUND ##
@@ -24,8 +24,8 @@ class Ghost:
         self.row = row
 
         ## LOAD IMAGES ##
-        # Loader billeder fra mappen ghostsImages, scalere størrelse #
-        # Intergere img til listen #
+        # Loader billeder fra mappen ghostsImages, scalerer størrelse #
+        # Intergerer img til listen #
         self.images = []
         for i in range(2):
             img = pg.image.load(f"images/ghostsImages/pink_{i}.png")
@@ -34,13 +34,13 @@ class Ghost:
 
         self.tick = 0
 
-    # Definere metoden find pacman, så classen kan finde pacman #
+    # Definerer metoden find pacman, så classen kan finde pacman #
     def find_pacman(self):
         self.col = -1
         self.row = -1
         print(self.col, self.row)
 
-    # Definere metoden move, hvor classen bevæger sig randomt mellem -1 +1 #
+    # Definerer metoden move, hvor classen bevæger sig randomt mellem -1 +1 #
     def move(self, level):
         self.col += random.randint(-1,1)
         self.row += random.randint(-1,1)
@@ -60,7 +60,7 @@ class Ghost:
 
         self.tick += 1 
     
-    # Definere draw, og tegner billed %2, sætter spawn. #
+    # Definerer draw, og tegner billed %2, sætter spawn. #
     def draw(self,screen):
         r = self.tick%2
         screen.blit(self.images[r], (self.col*32, self.row*32)) 

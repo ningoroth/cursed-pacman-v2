@@ -1,5 +1,5 @@
 ## REQUIRED MODULES ##
-# Importere biblioteker #
+# Importerer biblioteker #
 import pygame as pg
 
 # Starter klassen "Level" #

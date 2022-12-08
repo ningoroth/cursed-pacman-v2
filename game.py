@@ -1,5 +1,5 @@
 ## REQUIRED MODULES ##
-# Importere biblioteker #
+# Importerer biblioteker #
 import random
 import time
 import pygame as pg
@@ -10,7 +10,7 @@ from level import Level
 
 
 ## SETUP ##
-# Opstiller spillets "level" og scaler x,y koordinater til spilskærmen#
+# Opstiller spillets "level" og scaler x,y koordinater til spilskærmen #
 pg.init()
 level = Level("level.txt")
 
@@ -31,10 +31,10 @@ state = "LOAD"
 points = 0
 running = True
 
-# WhileLoop/GameLoop #
+# WhileLoop / GameLoop #
 while running:
     
-    # Initiere classes til variabler #
+    # Initierer classes til variabler #
     if state == "LOAD":
         pacman = PacMan(level.pacman_x, level.pacman_y)
         ghost = Ghost(level.ghost_x, level.ghost_y)
@@ -56,7 +56,7 @@ while running:
                 if event.key == pg.K_RETURN:
                     state = "PLAY"  
 
-        # Opdatere display og hele programmet delayer i 0.1 sekundt #
+        # Opdaterer display og hele programmet delayer i 0.1 sekundt #
         pg.display.flip()  
         time.sleep(0.1)
         
@@ -98,7 +98,7 @@ while running:
             points += 1
             level.tiles[pacman.row][pacman.col] = " "
 
-        ## Draw ##
+        ## DRAW ##
         # Fylder skærmen til sort, variablerne tegner classerne #
         screen.fill((0,0,0))
         level.draw(screen)
