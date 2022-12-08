@@ -21,6 +21,7 @@ crackmanImage = pg.image.load("images/crackman.png")
 pg.display.set_icon(crackmanImage)
 
 font = pg.font.Font("crackman.ttf", 32)
+titleFont = pg.font.Font("crackman.ttf", 64)
 
 ## Game loop ##
 direction = None
@@ -38,9 +39,13 @@ while running:
 
 
     elif state == "READY":
-        text = font.render("Press [Enter] to play", True, (220,220,10))
-        text_rect = text.get_rect(center=(width/2, height/2+70))
-        screen.blit(text, text_rect)
+        titleText = titleFont.render("Crack-Man", True, (220,220,10))
+        titleText_rect = titleText.get_rect(center=(width/2, height/2-250))
+        screen.blit(titleText, titleText_rect)
+        
+        enterText = font.render("Press [Enter] to play", True, (220,220,10))
+        enterText_rect = enterText.get_rect(center=(width/2, height/2+70))
+        screen.blit(enterText, enterText_rect)
 
         crackmanImage = pg.transform.scale(crackmanImage, (200,200))
         crackmanImage_rect = crackmanImage.get_rect(center=(width/2, height/2-70))
